@@ -13,10 +13,13 @@ private:
 	int *parent;
 	int count; //Кол-во вершин графа
 public:
-	Graph(int );
+	Graph(int count);
+	Graph operator==(const Graph &copy);
+	Graph(const Graph &copy);
 	void AddWeightedEdge(int first, int second, int w);
 	int find_set(int i);
 	void union_set(int u, int v);
+	void comp();
 	void kruskal();
 	void print();
 };
@@ -25,6 +28,18 @@ Graph::Graph(int count) {
 	parent = new int[count];
 	for (int i = 0; i < count; i++)
 		parent[i] = i;
+}
+
+Graph Graph::operator==(const Graph &copy){
+	bool a;
+	for (G.begin(), G.back();;)
+	if (G == copy.G)
+		a = true;
+	a = false;
+}
+
+Graph::Graph(const Graph &copy){
+	count = copy.count;
 }
 
 void Graph::AddWeightedEdge(int first, int second, int w) {
@@ -44,7 +59,7 @@ void Graph::union_set(int u, int v) {
 
 void Graph::kruskal() {
 	int uRep, vRep;
-	sort(G.begin(), G.end());
+	sort(G.begin(), G.end()); // по возрастанию
 	for (int i = 0; i < G.size(); i++) {
 		uRep = find_set(G[i].second.first);
 		vRep = find_set(G[i].second.second);
