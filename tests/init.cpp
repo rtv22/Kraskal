@@ -6,7 +6,7 @@
 
 SCENARIO("algorithm", "[algorithm]"){
 	Graph test;
-	REQUIRE(test.n() == 0);
+	REQUIRE(test.() == 0);
 }
 
 SCENARIO("algorithm", "[algorithm]"){
@@ -31,14 +31,13 @@ SCENARIO("algorithm", "[algorithm]"){
 	test.AddWeightedEdge(5, 3, 2);
 	test.AddWeightedEdge(5, 2, 4);
 	test.AddWeightedEdge(5, 4, 6);
-	test.kraskal();
-	Graph test1(6);
-	test1.AddWeightedEdge(0, 2, 1);
-	test1.AddWeightedEdge(3, 5, 2);
-	test1.AddWeightedEdge(1, 4, 3);
-	test1.AddWeightedEdge(2, 5, 4);
-	test1.AddWeightedEdge(1, 2, 5);
-	REQUIRE(true==(test == test1));
+	vector<pair<int, edge>> T;
+	T.push_back(make_pair(1, edge(0, 2)));
+	T.push_back(make_pair(2, edge(3, 5)));
+	T.push_back(make_pair(3, edge(1, 4)));
+	T.push_back(make_pair(4, edge(2, 5)));
+	T.push_back(make_pair(5, edge(1, 2)));
+	REQUIRE(true==(test.kraskal() == T));
 	
 }
 
