@@ -10,7 +10,8 @@ SCENARIO("algorithm", "[algorithm]"){
 }
 
 SCENARIO("algorithm", "[algorithm]"){
-	Graph test(6);
+	Graph copy(6);
+	Graph test(copy);
 	test.AddWeightedEdge(0, 1, 6);
 	test.AddWeightedEdge(0, 2, 1);
 	test.AddWeightedEdge(0, 3, 5);
