@@ -13,7 +13,7 @@ private:
 	int *parent;
 	int count; //Кол-во вершин графа
 public:
-	int count()const;
+	Graph(int );
 	void AddWeightedEdge(int first, int second, int w);
 	int find_set(int i);
 	void union_set(int u, int v);
