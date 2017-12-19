@@ -44,7 +44,7 @@ void Graph::union_set(int u, int v) {
 
 void Graph::kruskal() {
 	int uRep, vRep;
-	sort(G.begin(), G.end()); // по возрастанию
+	sort(G.begin(), G.end());
 	for (int i = 0; i < G.size(); i++) {
 		uRep = find_set(G[i].second.first);
 		vRep = find_set(G[i].second.second);
