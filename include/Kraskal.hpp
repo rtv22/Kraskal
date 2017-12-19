@@ -11,36 +11,40 @@ private:
 	vector<pair<int, edge>> G; // исходный граф
 	vector<pair<int, edge>> T; // конечный
 	int *parent;
-	int count; //Кол-во вершин графа
+	int n; //Кол-во вершин графа
 public:
+	Graph();
 	Graph(int count);
-	Graph operator==(const Graph &copy);
+	int count();
+	int array_(int );
+	Graph operator==(Graph &copy);
 	Graph(const Graph &copy);
 	void AddWeightedEdge(int first, int second, int w);
 	int find_set(int i);
 	void union_set(int u, int v);
 	void comp();
-	void kruskal();
+	vector<pair<int, edge>> kraskal();
 	void print();
 };
 
-Graph::Graph(int count) {
-	parent = new int[count];
-	for (int i = 0; i < count; i++)
+Graph::Graph() : n{ 0 }, parent{ nullptr }
+{}
+
+int Graph::count()
+{
+	return n;
+}
+
+int Graph::array_(int value)
+{
+	return parent[value];
+}
+
+Graph::Graph(int n) {
+	parent = new int[n];
+	for (int i = 0; i < n; i++)
 		parent[i] = i;
-}
-
-Graph Graph::operator==(const Graph &copy){
-	bool a;
-	for (G.begin(), G.back();;)
-	if (G == copy.G)
-		a = true;
-	a = false;
-}
-
-Graph::Graph(const Graph &copy){
-	count = copy.count;
-}
+} 
 
 void Graph::AddWeightedEdge(int first, int second, int w) {
 	G.push_back(make_pair(w, edge(first, second)));
@@ -57,7 +61,7 @@ void Graph::union_set(int u, int v) {
 	parent[u] = parent[v];
 }
 
-void Graph::kruskal() {
+vector<pair<int, edge>> Graph::kraskal() {
 	int uRep, vRep;
 	sort(G.begin(), G.end()); // по возрастанию
 	for (int i = 0; i < G.size(); i++) {
@@ -66,8 +70,9 @@ void Graph::kruskal() {
 		if (uRep != vRep) { // чтобы не отображалось дважды
 			T.push_back(G[i]);
 			union_set(uRep, vRep);
-		}
+		} 
 	}
+	return T;
 }
 
 void Graph::print() {
