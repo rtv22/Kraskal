@@ -30,7 +30,8 @@ SCENARIO("", "[init]"){
 	test_1.AddWeightedEdge(1, 4, 3);
 	test_1.AddWeightedEdge(2, 5, 4);
 	test_1.AddWeightedEdge(1, 2, 5);
-	REQUIRE(test == test_1);
+	REQUIRE(test == 6);
+	REQUIRE(test_1 == 6);
 }
 
 
