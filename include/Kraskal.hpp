@@ -14,6 +14,7 @@ private:
 	int count; //Кол-во вершин графа
 public:
 	Graph(int count);
+	int count()const;
 	void AddWeightedEdge(int first, int second, int w);
 	int find_set(int i);
 	void union_set(int u, int v);
@@ -25,6 +26,11 @@ Graph::Graph(int count) {
 	parent = new int[count];
 	for (int i = 0; i < count; i++)
 		parent[i] = i;
+}
+
+int Graph::count()const
+{
+	return count;
 }
 
 void Graph::AddWeightedEdge(int first, int second, int w) {
