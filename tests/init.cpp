@@ -6,7 +6,7 @@
 
 SCENARIO("algorithm", "[algorithm]"){
 	Graph test;
-	REQUIRE(test.() == 0);
+	REQUIRE(test.count() == 0);
 }
 
 SCENARIO("algorithm", "[algorithm]"){
