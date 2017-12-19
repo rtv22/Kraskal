@@ -5,13 +5,12 @@
 #include <algorithm>
 
 SCENARIO("algorithm", "[algorithm]"){
-	Graph test;
-	REQUIRE(test.count() == 0);
+	Graph test_;
+	REQUIRE(test_.count() == 0);
 }
 
 SCENARIO("algorithm", "[algorithm]"){
-	Graph copy(6);
-	Graph test(copy);
+	Graph test(6);
 	test.AddWeightedEdge(0, 1, 6);
 	test.AddWeightedEdge(0, 2, 1);
 	test.AddWeightedEdge(0, 3, 5);
