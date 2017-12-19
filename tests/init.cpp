@@ -32,6 +32,7 @@ SCENARIO("algorithm", "[algorithm]"){
 	test1.AddWeightedEdge(1, 4, 3);
 	test1.AddWeightedEdge(2, 5, 4);
 	test1.AddWeightedEdge(1, 2, 5);
+	REQUIRE(test == test1);
 	
 }
 
